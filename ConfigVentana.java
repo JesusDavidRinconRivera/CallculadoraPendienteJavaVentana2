@@ -4,7 +4,8 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ConfigVentana extends JFrame {
-    private JPanel panelGeneral,panelVerde,panelAzul;
+    public JPanel panelGeneral, panelVerde, panelAzul;
+    public JButton btnCalcular;
     Dimension Tamaño = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getSize();
 
     public ConfigVentana() {
@@ -13,21 +14,18 @@ public class ConfigVentana extends JFrame {
         setLocationRelativeTo(null);
         setTitle("Calculadora de Pendiente");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       // panelVerde = new ConfigPanel();
+        // panelVerde = new ConfigPanel();
         Paneles();
+        Etiquetas();
+        Botones();
     }
-
-    private void Paneles(){
+    public void Paneles() {
         panelGeneral = new JPanel(new GridBagLayout());
         panelVerde = new JPanel();
         panelAzul = new JPanel();
-    
+
         panelVerde.setBackground(Color.GREEN);
         panelAzul.setBackground(Color.BLUE);
-    
-        JLabel Calcular = new JLabel("Calcular");
-        panelAzul.add(Calcular);
-    
         // definir las restricciones de panelVerde
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -37,7 +35,7 @@ public class ConfigVentana extends JFrame {
         gbc.weightx = 0.2;
         gbc.weighty = 0.8;
         panelGeneral.add(panelVerde, gbc);
-    
+
         // definir las restricciones de panelAzul
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
@@ -46,9 +44,21 @@ public class ConfigVentana extends JFrame {
         gbc.weightx = 1;
         gbc.weighty = 0;
         panelGeneral.add(panelAzul, gbc);
-    
+
         this.getContentPane().add(panelGeneral);
     }
-    
-    
+    public void Etiquetas() {
+
+        Font fuente = new Font("Arial", Font.BOLD, 36);
+        JLabel Calcular = new JLabel("Calcular");
+        Calcular.setFont(fuente);
+        Calcular.setForeground(Color.WHITE);
+        panelAzul.add(Calcular);
+    }
+    public void Botones() {
+        JButton btnCalcular = new JButton("Calcular");
+        btnCalcular.setBounds(10, 400, 390, 70);
+        panelVerde.add(btnCalcular);
+    }
+
 }

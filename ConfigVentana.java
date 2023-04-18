@@ -18,6 +18,8 @@ public class ConfigVentana extends JFrame {
         Paneles();
         Etiquetas();
         Botones();
+        Cajas();
+
     }
     public void Paneles() {
         panelGeneral = new JPanel(new GridBagLayout());
@@ -50,15 +52,29 @@ public class ConfigVentana extends JFrame {
     public void Etiquetas() {
 
         Font fuente = new Font("Arial", Font.BOLD, 36);
-        JLabel Calcular = new JLabel("Calcular");
+        JLabel Calcular = new JLabel("Pendiente: ");
         Calcular.setFont(fuente);
         Calcular.setForeground(Color.WHITE);
         panelAzul.add(Calcular);
     }
     public void Botones() {
         JButton btnCalcular = new JButton("Calcular");
-        btnCalcular.setBounds(10, 400, 390, 70);
+        btnCalcular.setBounds(10, 4, 390, 70);
         panelVerde.add(btnCalcular);
     }
+    public void Cajas(){
+        JTextField X1 = new JTextField();
+        JTextField Y1 = new JTextField();
+        JTextField X2 = new JTextField();
+        JTextField Y2 = new JTextField();
+        X1.setBounds(10, 10, 390, 30);
+        Y1.setBounds(10, 10, 390, 30);
+        X2.setBounds(10, 10, 390, 30);
+        Y2.setBounds(10, 10, 390, 30);
+        panelVerde.add(X1);
+        panelVerde.add(Y1);
+        panelVerde.add(X2);
+        panelVerde.add(Y2);
 
+    }
 }
